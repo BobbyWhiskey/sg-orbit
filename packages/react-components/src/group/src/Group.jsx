@@ -1,4 +1,4 @@
-import { Flex } from "@react-components/layout";
+import { Flex } from "../../layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
