@@ -54,7 +54,7 @@
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/icon-check-24.svg") center center no-repeat;
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
 }
 

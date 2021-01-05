@@ -4,7 +4,7 @@ import { Children, forwardRef, useCallback, useReducer, useRef } from "react";
 import { DisclosureProvider } from "./DisclosureContext";
 import { KEYS, augmentElement, match, resolveChildren, useControllableState, useDisposables, useEventCallback, useId, useIsInitialRender } from "../../shared";
 import { any, bool, func } from "prop-types";
-import { cssModule } from "../../../dist";
+import { cssModule } from "../../shared";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 
