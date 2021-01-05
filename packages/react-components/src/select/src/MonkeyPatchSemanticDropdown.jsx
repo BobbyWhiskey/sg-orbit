@@ -4,7 +4,6 @@ import { Dropdown as SemanticDropdown } from "semantic-ui-react";
 import { isNil } from "lodash";
 import { renderAvatar } from "./renderAvatar";
 import { renderIcons } from "./renderIcons";
-import cx from "classnames";
 
 export class MonkeyPatchSemanticDropdown extends SemanticDropdown {
     static contextType = SelectContext;
@@ -113,11 +112,11 @@ export class MonkeyPatchSemanticDropdown extends SemanticDropdown {
             }
         }
 
-        const classes = cx(
+        const classes = [
             placeholder && !hasValue && "default",
             "text",
             search && searchQuery && "filtered"
-        );
+        ].filter(Boolean).join(" ");
 
         return (
             <div className={classes} role="alert" aria-live="polite" aria-atomic>
