@@ -219,7 +219,6 @@ export const DownloadIcon = createOrbitMultiVariantIcon(InnerDownloadIcon24, Inn
 export const EditIcon = createOrbitMultiVariantIcon(InnerEditIcon24, InnerEditIcon32, "EditIcon");
 export const EmailIcon = createOrbitMultiVariantIcon(InnerEmailIcon24, InnerEmailIcon32, "EmailIcon");
 export const EmailReminderIcon = createOrbitMultiVariantIcon(InnerEmailReminderIcon24, InnerEmailReminderIcon32, "EmailReminderIcon");
-export const EyeIcon = createOrbitMultiVariantIcon(InnerEyeIcon24, InnerEyeIcon32, "EyeIcon");
 export const FileIcon = createOrbitMultiVariantIcon(InnerFileIcon24, InnerFileIcon32, "FileIcon");
 export const FilterIcon = createOrbitMultiVariantIcon(InnerFilterIcon24, InnerFilterIcon32, "FilterIcon");
 export const FlagIcon = createOrbitMultiVariantIcon(InnerFlagIcon24, InnerFlagIcon32, "FlagIcon");
