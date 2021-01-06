@@ -2,77 +2,77 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { Text } from "../../text";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+// import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
+import { ReactNode, forwardRef, useMemo, SyntheticEvent, ComponentType } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+interface ButtonProps {
     /**
      * The button style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost"]),
+    variant?: "solid" | "outline" | "ghost";
     /**
      * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger", "inherit"]),
+    color?: "primary" | "secondary" | "danger" | "inherit";
     /**
      * The button shape.
      */
-    shape: oneOf(["pill", "rounded", "circular"]),
+    shape?: "pill" | "rounded" | "circular";
     /**
      * Whether or not the button content should takes additional space.
      */
-    condensed: bool,
+    condensed?: boolean;
     /**
      * Whether or not the button should autoFocus on render.
      */
-    autoFocus: bool,
+    autoFocus?: boolean;
     /**
      * The delay before trying to autofocus.
      */
-    autoFocusDelay: number,
+    autoFocusDelay?: number;
     /**
      * Whether the button take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * A button can show a loading indicator.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * A button can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the button is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * The button type.
      */
-    type: oneOf(["button", "submit", "reset"]),
+    type?: "button" | "submit" | "reset";
     /**
      * Called when the button is click.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
      */
-    onClick: func,
+    onClick?(e: SyntheticEvent): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: string | ComponentType;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
     /**
      * React children.
      */
-    children: any.isRequired
+    children: ReactNode;
+
+    forwardedRef: React.ForwardedRef<unknown>
 };
 
 const condensedTextSize = createSizeAdapter({
@@ -80,7 +80,7 @@ const condensedTextSize = createSizeAdapter({
     "md": "lg"
 });
 
-export function InnerButton(props) {
+export function InnerButton(props: ButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
 
@@ -107,7 +107,7 @@ export function InnerButton(props) {
         props,
         formProps,
         omitProps(toolbarProps, ["orientation"])
-    );
+    ) as any;
 
     const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
         cssModule: "o-ui-text-button",
@@ -144,7 +144,7 @@ export function InnerButton(props) {
             size: condensed ? size : embeddedIconSize(size),
             className: "o-ui-button-right-icon"
         }
-    }), [size, condensed, loading]));
+    }), [size, condensed, loading])) as any;
 
     return (
         <Box
@@ -168,9 +168,7 @@ export function InnerButton(props) {
     );
 }
 
-InnerButton.propTypes = propTypes;
-
-export const Button = slot("button", forwardRef((props, ref) => (
+export const Button = slot("button", forwardRef((props: Omit<ButtonProps, "forwardedRef">, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
 
