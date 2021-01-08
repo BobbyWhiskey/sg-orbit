@@ -1123,7 +1123,7 @@
     "@babel/plugin-transform-react-jsx-source" "^7.12.1"
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
-"@babel/preset-typescript@^7.12.1":
+"@babel/preset-typescript@7.12.7", "@babel/preset-typescript@^7.12.1":
   version "7.12.7"
   resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.12.7.tgz#fc7df8199d6aae747896f1e6c61fc872056632a3"
   integrity sha512-nOoIqIqBmHBSEgBXWR4Dv/XBehtIFcw9PqZw6rFYuKrzsZmOQm3PR5siLBnKZFEsDb03IegG8nSjU/iXXXYRmw==
@@ -1690,6 +1690,11 @@
     "@types/node" "*"
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
+
+"@juggle/resize-observer@3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.1.3.tgz#d7373eb9a1afc371342b8cf1a07e34368f3d65d7"
+  integrity sha512-y7qc6SzZBlSpx8hEDfV0S9Cx6goROX/vBhS2Ru1Q78Jp1FlCMbxp7UcAN90rLgB3X8DSMBgDFxcmoG/VfdAhFA==
 
 "@juggle/resize-observer@3.2.0":
   version "3.2.0"
@@ -2987,6 +2992,20 @@
   resolved "https://registry.yarnpkg.com/@orbit-ui/icons/-/icons-7.0.0.tgz#895e3dde1e126343627d9bd5c7ab4427c2514131"
   integrity sha512-0oTADI7RWOQJQvmL/9DLVJi19LZ9a8aJzpcwUSsVrr6OY5EjnfmuKlR9KfmKdYJRy6PWDNtBu/vIaR7RTJv4AA==
 
+"@orbit-ui/react-components@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@orbit-ui/react-components/-/react-components-11.0.1.tgz#6576b2a0f4b89b805d0198f1f7ad200e3e13b193"
+  integrity sha512-hTDEUhVIQh/viEReKSPE9vHEExPMib3ALDBuVpenh7+XHYqmKxUhP1UmIt5MQuxzR4gZRp8Bvn21RYhEwDbbBg==
+  dependencies:
+    "@babel/runtime-corejs3" "*"
+    "@juggle/resize-observer" "3.1.3"
+    "@popperjs/core" "2.2.2"
+    prop-types "*"
+    react-dates "21.8.0"
+    react-moment-proptypes "*"
+    react-popper "2.2.1"
+    semantic-ui-react "0.88.1"
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.2":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
@@ -2998,6 +3017,11 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
     source-map "^0.7.3"
+
+"@popperjs/core@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.2.2.tgz#2e254f5eb31f3abc35470060fb7116937d837739"
+  integrity sha512-LaSssaO8QHSAnRI4ZZB+jTD/hmndqOzwabDwKuySS1ME0pj+La6pV77i5CIQ61kVtz3pE13DhmkaYFGtrrCMeg==
 
 "@popperjs/core@2.5.4", "@popperjs/core@^2.4.4", "@popperjs/core@^2.5.2", "@popperjs/core@^2.5.4":
   version "2.5.4"
@@ -4289,6 +4313,13 @@
     "@types/react" "*"
     "@types/reactcss" "*"
 
+"@types/react-dom@17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.0.tgz#b3b691eb956c4b3401777ee67b900cb28415d95a"
+  integrity sha512-lUqY7OlkF/RbNtD5nIq7ot8NquXrdFrjSOR6+w9a9RFQevGi1oZO1dcJbXMeONAPKtZ2UrZOEJ5UOCVsxbLk/g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-syntax-highlighter@11.0.4":
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.4.tgz#d86d17697db62f98046874f62fdb3e53a0bbc4cd"
@@ -4303,7 +4334,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@17.0.0":
   version "17.0.0"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
   integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
@@ -19181,6 +19212,14 @@ react-popper-tooltip@^3.1.0:
     "@babel/runtime" "^7.12.5"
     "@popperjs/core" "^2.5.4"
     react-popper "^2.2.4"
+
+react-popper@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.1.tgz#c5fdd3f58450f1144850381dca2aa0cb8db62248"
+  integrity sha512-nkO8lDzj2ZPO+fSK+gqo/dxEHBw4JZAE57tlS0Dm2EaPd7/C7Qs2bWXQUNAvzMf6X2s7LlyhQSzuvycOSyACPQ==
+  dependencies:
+    react-fast-compare "^3.0.1"
+    warning "^4.0.2"
 
 react-popper@2.2.4, react-popper@^2.2.3, react-popper@^2.2.4:
   version "2.2.4"

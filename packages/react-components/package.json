@@ -1,21 +1,31 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "11.0.8",
+    "version": "11.0.21",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "publishConfig": {
         "access": "public"
     },
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
+    ],
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "babel src -d dist --config-file ./babel.config.js --copy-files",
+        "build": "yarn run build:types && yarn run build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
-        "clean": "rimraf dist"
+        "clean": "rimraf dist",
+        "type-check": "tsc --noEmit",
+        "type-check:watch": "yarn run type-check -- --watch"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
@@ -37,6 +47,11 @@
         "react-moment-proptypes": "*",
         "react-popper": "2.2.4",
         "semantic-ui-react": "2.0.1"
+    },
+    "devDependencies": {
+        "@types/react": "17.0.0",
+        "@types/react-dom": "17.0.0",
+        "typescript": "4.1.3"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

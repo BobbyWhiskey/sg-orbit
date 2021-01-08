@@ -5,7 +5,7 @@ import { Text } from "../../text";
 // import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { ReactNode, forwardRef, useMemo, SyntheticEvent, ComponentType } from "react";
+import React, { FC, ReactNode, forwardRef, useMemo, SyntheticEvent, ComponentType } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
@@ -72,7 +72,7 @@ interface ButtonProps {
      */
     children: ReactNode;
 
-    forwardedRef: React.ForwardedRef<unknown>
+    forwardedRef?: React.ForwardedRef<unknown>
 };
 
 const condensedTextSize = createSizeAdapter({
@@ -168,7 +168,7 @@ export function InnerButton(props: ButtonProps) {
     );
 }
 
-export const Button = slot("button", forwardRef((props: Omit<ButtonProps, "forwardedRef">, ref) => (
+export const Button: FC<ButtonProps> = slot("button", forwardRef((props: Omit<ButtonProps, "forwardedRef">, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
 
